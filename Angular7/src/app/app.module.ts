@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { UserService } from './shared/user.service';
-import{ HttpClientModule } from "@angular/common/http";
+import{ HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 
 @NgModule({
@@ -32,7 +33,11 @@ import { HomeComponent } from './home/home.component';
     }),
     FormsModule
   ],
-  providers: [UserService],
+  providers: [UserService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
