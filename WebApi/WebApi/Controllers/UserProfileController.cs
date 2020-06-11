@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
 using WebApi.Models;
 
 namespace WebApi.Controllers
@@ -15,11 +18,15 @@ namespace WebApi.Controllers
     public class UserProfileController : ControllerBase
     {
         private readonly UserManager<ApplicationUser> userManager;
+        private readonly AuthenticationContext context;
 
-        public UserProfileController(UserManager<ApplicationUser> userManager)
+        public UserProfileController(UserManager<ApplicationUser> userManager, AuthenticationContext context)
         {
             this.userManager = userManager;
+            this.context = context;
         }
+
+
         [HttpGet]
         [Authorize]
         //GET : /api/UserProfile
@@ -34,5 +41,19 @@ namespace WebApi.Controllers
                 user.UserName
             };
         }
+
+
+        [HttpGet]
+        [Route("User")]
+        //GET : /api/User
+        public async Task<IEnumerable<object>> GetUser()
+        {
+            var user = await context.ApplicationUsers
+                .Select(x => new  { username = x.UserName, fullname = x.FullName, email = x.Email })
+                .ToListAsync();
+            return user;
+        }
+
     }
+
 }

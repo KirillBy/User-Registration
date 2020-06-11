@@ -48,6 +48,7 @@ return this.http.post(this.BaseURI+'/ApplicationUser/Register', body);
   }
 
   getUserProfile(){
-    return this.http.get(this.BaseURI+'/UserProfile');
+    var tokenHeader = new HttpHeaders({'Authorization':'Bearer'+ localStorage.getItem('token')});
+    return this.http.get(this.BaseURI+'/UserProfile',{headers : tokenHeader });
   }
 }
