@@ -3,50 +3,40 @@
     <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
   </nav>
 
-  <div class="card m-5" style="width:18rem" *ngIf="userDetails">
+  <div class="card m-5" style="width:18rem" *ngIf="details">
   <ul class="list-group">
       <li class="list-group-item">
-          <strong>Username: </strong>{{userDetails.userName}}
+          <strong>Username: </strong>{{details.userName}}
       </li>
       <li class="list-group-item">
-        <strong>Fullname: </strong>{{userDetails.fullName}}
+        <strong>Fullname: </strong>{{details.fullName}}
     </li>
     <li class="list-group-item">
-        <strong>Email: </strong>{{userDetails.email}}
+        <strong>Email: </strong>{{details.email}}
     </li>
   </ul>
 </div>
 
-<!-- <table class="table table-striped">
+
+ <table class="table table-striped">
     <thead>
         <tr>
-            <td>Id</td>
-            <td>Имя</td>
-            <td>Возраст</td>
-            <td></td>
-            <td></td>
+            <td><input type="checkbox" ng-model="select.All" ></td>
+            <td>Name</td>
+
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let user of userDetails">
+        <tr *ngFor="let user of userArray">
+            <td><input type="checkbox" ng-model="value.isSelected" ></td>
             <ng-template [ngTemplateOutlet]="loadTemplate(user)" 
                         [ngTemplateOutletContext]="{ $implicit: user}">
             </ng-template>
         </tr>
     </tbody>
-    <div>{{statusMessage}}</div>
-    
+    <ng-template #readOnlyTemplate let-user>
+        <td>{{user.nickname}}</td>
+    </ng-template>
+    </table>
     
 
-<ng-template #readOnlyTemplate let-user>
-    <td>{{user.userName}}</td>
-    <td>{{user.fullName}}</td>
-    <td>{{user.email}}</td>
-    <td>
-        <input type="button" value="Изменить" class="btn btn-default" (click)="editUser(user)" />
-    </td>
-    <td>
-        <input type="button" value="Удалить" (click)="deleteUser(user)" class="btn btn-danger" />
-    </td>
-</ng-template>
-</table> --> 

@@ -10,8 +10,8 @@ using WebApi.Models;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(AuthenticationContext))]
-    [Migration("20200610111419_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200612122236_init migration")]
+    partial class initmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -197,6 +197,12 @@ namespace WebApi.Migrations
 
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(150)");
+
+                    b.Property<bool>("IsBlocked");
+
+                    b.Property<DateTime>("LastLoginDate");
+
+                    b.Property<DateTime>("RegistrationDate");
 
                     b.ToTable("ApplicationUser");
 

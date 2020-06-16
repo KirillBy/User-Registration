@@ -40,6 +40,9 @@ namespace WebApi.Controllers
                 UserName = model.UserName,
                 Email = model.Email,
                 FullName = model.FullName,
+                RegistrationDate = DateTime.UtcNow,
+                LastLoginDate = DateTime.UtcNow,
+                IsBlocked = false
             };
             try
             {
@@ -73,6 +76,8 @@ namespace WebApi.Controllers
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var securityToken = tokenHandler.CreateToken(tokenDescriptor);
                 var token = tokenHandler.WriteToken(securityToken);
+                user.LastLoginDate = DateTime.UtcNow;
+                await userManager.UpdateAsync(user);
                 return Ok(new { token });
             }
             else

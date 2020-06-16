@@ -4,6 +4,7 @@ import { UserService } from 'src/app/shared/user.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -36,4 +37,6 @@ console.log(err);
   }
 )
   }
+
 }
+

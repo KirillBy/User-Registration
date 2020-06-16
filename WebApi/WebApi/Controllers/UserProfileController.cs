@@ -49,7 +49,8 @@ namespace WebApi.Controllers
         public async Task<IEnumerable<object>> GetUser()
         {
             var user = await context.ApplicationUsers
-                .Select(x => new  { username = x.UserName, fullname = x.FullName, email = x.Email })
+                .Select(x => new  { id = x.Id, username = x.UserName, email = x.Email, regdate = x.RegistrationDate
+                , logdate = x.LastLoginDate, status = x.IsBlocked})
                 .ToListAsync();
             return user;
         }

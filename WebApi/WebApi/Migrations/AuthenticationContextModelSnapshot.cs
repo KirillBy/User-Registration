@@ -196,6 +196,12 @@ namespace WebApi.Migrations
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(150)");
 
+                    b.Property<bool>("IsBlocked");
+
+                    b.Property<DateTime>("LastLoginDate");
+
+                    b.Property<DateTime>("RegistrationDate");
+
                     b.ToTable("ApplicationUser");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
