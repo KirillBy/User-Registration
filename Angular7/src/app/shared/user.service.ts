@@ -5,6 +5,7 @@ import{ HttpClient, HttpHeaders } from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
 
   constructor(private fb:FormBuilder, private http:HttpClient) { }
@@ -32,6 +33,8 @@ readonly BaseURI = 'http://localhost:12380//api';
       confirmPswdCtrl.setErrors(null);
     }
   }
+  
+
 
   register(){
 var body = {
@@ -42,6 +45,7 @@ var body = {
 };
 return this.http.post(this.BaseURI+'/ApplicationUser/Register', body);
   }
+
   login(formData)
   {
     return this.http.post(this.BaseURI+'/ApplicationUser/Login', formData);
@@ -53,5 +57,10 @@ return this.http.post(this.BaseURI+'/ApplicationUser/Register', body);
   getUserProfile(){
     var tokenHeader = new HttpHeaders({'Authorization':'Bearer'+ localStorage.getItem('token')});
     return this.http.get(this.BaseURI+'/UserProfile',{headers : tokenHeader });
+  }
+
+  testing(username){
+    console.log(username);
+     return this.http.get(this.BaseURI+'/ApplicationUser/T?username=' +username);
   }
 }

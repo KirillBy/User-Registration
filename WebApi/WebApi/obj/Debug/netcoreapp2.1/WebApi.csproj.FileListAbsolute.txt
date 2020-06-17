@@ -6,8 +6,6 @@ C:\User-Registration\WebApi\WebApi\bin\Debug\netcoreapp2.1\WebApi.runtimeconfig.
 C:\User-Registration\WebApi\WebApi\bin\Debug\netcoreapp2.1\WebApi.runtimeconfig.dev.json
 C:\User-Registration\WebApi\WebApi\bin\Debug\netcoreapp2.1\WebApi.dll
 C:\User-Registration\WebApi\WebApi\bin\Debug\netcoreapp2.1\WebApi.pdb
-C:\User-Registration\WebApi\WebApi\obj\Debug\netcoreapp2.1\WebApi.csprojAssemblyReference.cache
-C:\User-Registration\WebApi\WebApi\obj\Debug\netcoreapp2.1\WebApi.csproj.CoreCompileInputs.cache
 C:\User-Registration\WebApi\WebApi\obj\Debug\netcoreapp2.1\WebApi.RazorAssemblyInfo.cache
 C:\User-Registration\WebApi\WebApi\obj\Debug\netcoreapp2.1\WebApi.RazorAssemblyInfo.cs
 C:\User-Registration\WebApi\WebApi\obj\Debug\netcoreapp2.1\WebApi.AssemblyInfoInputs.cache
@@ -16,3 +14,5 @@ C:\User-Registration\WebApi\WebApi\obj\Debug\netcoreapp2.1\WebApi.RazorTargetAss
 C:\User-Registration\WebApi\WebApi\obj\Debug\netcoreapp2.1\WebApi.dll
 C:\User-Registration\WebApi\WebApi\obj\Debug\netcoreapp2.1\WebApi.pdb
 C:\User-Registration\WebApi\WebApi\obj\Debug\netcoreapp2.1\WebApi.genruntimeconfig.cache
+C:\User-Registration\WebApi\WebApi\obj\Debug\netcoreapp2.1\WebApi.csprojAssemblyReference.cache
+C:\User-Registration\WebApi\WebApi\obj\Debug\netcoreapp2.1\WebApi.csproj.CoreCompileInputs.cache

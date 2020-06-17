@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -82,6 +83,17 @@ namespace WebApi.Controllers
             }
             else
                 return BadRequest(new { message = "Username or password is incorrect." });
+        }
+
+        [HttpGet]
+        [Route("T")]
+        //Post : /api/UserProfile/T
+        public async Task<IActionResult> Update(string username)
+        {
+            var user = await userManager.FindByNameAsync(username);
+            user.IsBlocked = true;
+            await userManager.UpdateAsync(user);
+            return Ok();
         }
     }
 }

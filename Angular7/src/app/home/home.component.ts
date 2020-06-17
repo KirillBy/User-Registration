@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, TemplateRef, NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
-import { debug } from 'console';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -21,7 +21,7 @@ userArray =  new Array();
 selectedAll: any;
 @ViewChild('readOnlyTemplate', {static: false}) readOnlyTemplate: TemplateRef<any>;
 
-  constructor(private router:Router, private service:UserService) { }
+  constructor(private router:Router, private service:UserService, private toastr: ToastrService) { }
   
 
 ngOnInit() {
@@ -59,6 +59,22 @@ this.service.getAllUser().subscribe(
     this.router.navigate(['/user/login']);
   }
 
+  onBlock(){
+    for (var i = 0; i < this.userArray.length; i++) {
+      if(this.userArray[i].selected == true)
+      {
+        this.userArray[i].status = !this.userArray[i].status;
+        console.log(this.userArray[i].username);
+        this.service.testing(this.userArray[i].username).subscribe(
+          (res:any) =>{
+            if(res.succeeded){
+              this.toastr.success( this.userArray[i].username + 'is blocked');
+            }
+            });
+      }
+    }
+  }
+
   selectAll() {
     for (var i = 0; i < this.userArray.length; i++) {
       this.userArray[i].selected = this.selectedAll;
@@ -67,7 +83,14 @@ this.service.getAllUser().subscribe(
   checkIfAllSelected() {
     this.selectedAll = this.userArray.every(function(item:any) {
         return item.selected == true;
-      })
+      })   
+  }
+  checkIfAnySelected() {
+    for (var i = 0; i < this.userArray.length; i++) {
+      if(this.userArray[i].selected == true)
+      return true;
+    }
+    return false;
   }
 }
 

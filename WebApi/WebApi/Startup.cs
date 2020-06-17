@@ -80,9 +80,13 @@ namespace WebApi
                 app.UseDeveloperExceptionPage();
             }
             app.UseCors(builder =>
-            builder.WithOrigins(Configuration["ApplicationSettings:Client_URL"].ToString())
+            builder
+            .AllowCredentials()
+            .AllowAnyOrigin()
             .AllowAnyHeader()
-            .AllowAnyMethod());
+            .AllowAnyMethod()
+            
+            ) ;
             app.UseAuthentication();
             app.UseMvc();
         }
