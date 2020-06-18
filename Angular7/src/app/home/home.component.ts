@@ -65,7 +65,10 @@ this.service.getAllUser().subscribe(
       {
         this.userArray[i].status = true;
         this.service.block(this.userArray[i].username).subscribe();
+        if(this.userArray[i].username == this.details.userName)
+        this.onLogout();
       }
+      
     }
   }
 
