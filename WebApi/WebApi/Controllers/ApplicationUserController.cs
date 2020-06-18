@@ -95,7 +95,7 @@ namespace WebApi.Controllers
             var user = await userManager.FindByNameAsync(username);
             user.IsBlocked = true;
             await userManager.UpdateAsync(user);
-            return Ok(user);
+            return Ok();
         }
 
         [HttpGet]
@@ -106,7 +106,17 @@ namespace WebApi.Controllers
             var user = await userManager.FindByNameAsync(username);
             user.IsBlocked = false;
             await userManager.UpdateAsync(user);
-            return Ok(user);
+            return Ok();
+        }
+
+        [HttpDelete]
+        [Route("Delete")]
+        //Post : /api/ApplicationUser/UnBlock
+        public async Task<IActionResult> Delete(string username)
+        {
+            var user = await userManager.FindByNameAsync(username);
+            await userManager.DeleteAsync(user);
+            return Ok();
         }
     }
 }

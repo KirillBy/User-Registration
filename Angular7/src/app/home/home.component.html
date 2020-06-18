@@ -1,8 +1,22 @@
-<nav class="navbar navbar-dark bg-dark">
-    <a href="" class="navbar-brand text-white">User System</a>  
-    <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
-  </nav>
 
+
+  <mat-toolbar class= "usertoolbar" color = "primary">
+      <ul class = "toolbarlist">
+        <button type="button" class="btn btn-lg btn-block" [disabled]="!checkIfAnySelected()" (click)="onBlock()">
+            <mat-icon class = "icon" [disabled]="!checkIfAnySelected()" (click)="onBlock()" >lock</mat-icon>
+        </button>
+
+        <button type="button" class="btn btn-lg btn-block" [disabled]="!checkIfAnySelected()" (click)="onUnBlock()">
+            <mat-icon class = "icon"  (click)="onUnBlock()" >lock_open</mat-icon>
+        </button>
+
+        <button type="button" class="btn btn-lg btn-block" [disabled]="!checkIfAnySelected()" (click)="onDelete()">
+            <mat-icon class = "icon" (click)="onDelete()">delete</mat-icon>
+        </button>
+      </ul>
+    <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
+ </mat-toolbar>
+ 
   <div class="card m-5" style="width:18rem" *ngIf="details">
   <ul class="list-group">
       <li class="list-group-item">
@@ -17,12 +31,6 @@
   </ul>
 </div>
 
-<div class="form-row">
-    <div class="form-group col-md-2 offset-md-2">
-        <button type="button" class="btn btn-lg btn-block" [disabled]="!checkIfAnySelected()" (click)="onBlock()">Block</button>
-        <button type="button" class="btn btn-lg btn-block" [disabled]="!checkIfAnySelected()" (click)="onUnBlock()">UnBlock</button>
-    </div>
-</div>
 
  <table class="table table-striped">
     <thead>

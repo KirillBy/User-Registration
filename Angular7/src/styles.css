@@ -92,3 +92,19 @@ div.form-group.required>label:first-child:after{
     text-transform: uppercase;
     font-size: 0.9rem;
  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.usertoolbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.toolbarlist{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+

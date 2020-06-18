@@ -12,7 +12,9 @@ import{ HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
-import {MatTableModule} from '@angular/material/table';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -28,11 +30,14 @@ import {MatTableModule} from '@angular/material/table';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatTableModule,
+    MatToolbarModule,
+    FormsModule,
+    MatIconModule,
     ToastrModule.forRoot({
       progressBar : true
     }),
-    FormsModule
+
+
   ],
   providers: [UserService, {
     provide: HTTP_INTERCEPTORS,

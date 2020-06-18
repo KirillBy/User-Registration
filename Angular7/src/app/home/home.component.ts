@@ -82,6 +82,18 @@ this.service.getAllUser().subscribe(
     }
   }
 
+  onDelete(){
+    for (var i = 0; i < this.userArray.length; i++) {
+      if(this.userArray[i].selected == true)
+      {
+        this.service.delete(this.userArray[i].username).subscribe();
+      }
+      if(this.userArray[i].username == this.details.userName)
+      this.onLogout();
+    }
+    window.location.reload();
+  }
+
   selectAll() {
     for (var i = 0; i < this.userArray.length; i++) {
       this.userArray[i].selected = this.selectedAll;

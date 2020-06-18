@@ -33,8 +33,6 @@ readonly BaseURI = 'http://localhost:12380//api';
       confirmPswdCtrl.setErrors(null);
     }
   }
-  
-
 
   register(){
 var body = {
@@ -65,4 +63,7 @@ return this.http.post(this.BaseURI+'/ApplicationUser/Register', body);
   unblock(username){
     return this.http.get(this.BaseURI+'/ApplicationUser/UnBlock?username=' +username);
  }
+ delete(username){
+  return this.http.delete(this.BaseURI+'/ApplicationUser/Delete?username=' +username);
+}
 }
