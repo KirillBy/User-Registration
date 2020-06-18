@@ -77,6 +77,8 @@ namespace WebApi.Controllers
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var securityToken = tokenHandler.CreateToken(tokenDescriptor);
                 var token = tokenHandler.WriteToken(securityToken);
+                if (user.IsBlocked)
+                    return Forbid(); 
                 user.LastLoginDate = DateTime.UtcNow;
                 await userManager.UpdateAsync(user);
                 return Ok(new { token });

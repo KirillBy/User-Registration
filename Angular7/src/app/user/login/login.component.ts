@@ -30,8 +30,10 @@ this.service.login(form.value).subscribe(
     this.router.navigateByUrl('/home');
   },
   err=>{
-    if(err.status = 400)
+    if(err.status == 400)
 this.toastr.error('Incorrect username or password', 'Authentication failed');
+else if(err.status == 403)
+this.toastr.error('User is blocked');
 else
 console.log(err);
   }
