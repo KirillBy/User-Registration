@@ -63,14 +63,18 @@ this.service.getAllUser().subscribe(
     for (var i = 0; i < this.userArray.length; i++) {
       if(this.userArray[i].selected == true)
       {
-        this.userArray[i].status = !this.userArray[i].status;
-        console.log(this.userArray[i].username);
-        this.service.testing(this.userArray[i].username).subscribe(
-          (res:any) =>{
-            if(res.succeeded){
-              this.toastr.success( this.userArray[i].username + 'is blocked');
-            }
-            });
+        this.userArray[i].status = true;
+        this.service.block(this.userArray[i].username).subscribe();
+      }
+    }
+  }
+
+  onUnBlock(){
+    for (var i = 0; i < this.userArray.length; i++) {
+      if(this.userArray[i].selected == true)
+      {
+        this.userArray[i].status = false;
+        this.service.unblock(this.userArray[i].username).subscribe();
       }
     }
   }

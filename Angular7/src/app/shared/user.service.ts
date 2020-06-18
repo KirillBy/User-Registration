@@ -59,8 +59,10 @@ return this.http.post(this.BaseURI+'/ApplicationUser/Register', body);
     return this.http.get(this.BaseURI+'/UserProfile',{headers : tokenHeader });
   }
 
-  testing(username){
-    console.log(username);
-     return this.http.get(this.BaseURI+'/ApplicationUser/T?username=' +username);
+  block(username){
+     return this.http.get(this.BaseURI+'/ApplicationUser/Block?username=' +username);
   }
+  unblock(username){
+    return this.http.get(this.BaseURI+'/ApplicationUser/UnBlock?username=' +username);
+ }
 }

@@ -86,14 +86,25 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("T")]
-        //Post : /api/UserProfile/T
-        public async Task<IActionResult> Update(string username)
+        [Route("Block")]
+        //Post : /api/ApplicationUser/Block
+        public async Task<IActionResult> Block(string username)
         {
             var user = await userManager.FindByNameAsync(username);
             user.IsBlocked = true;
             await userManager.UpdateAsync(user);
-            return Ok();
+            return Ok(user);
+        }
+
+        [HttpGet]
+        [Route("UnBlock")]
+        //Post : /api/ApplicationUser/UnBlock
+        public async Task<IActionResult> UnBlock(string username)
+        {
+            var user = await userManager.FindByNameAsync(username);
+            user.IsBlocked = false;
+            await userManager.UpdateAsync(user);
+            return Ok(user);
         }
     }
 }

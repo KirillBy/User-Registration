@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/shared/user.service';
-import { element } from 'protractor';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -19,6 +18,7 @@ export class RegistrationComponent implements OnInit {
   onSubmit(){
     this.service.register().subscribe(
       (res:any) =>{
+        
         if(res.succeeded){
           this.service.formModel.reset();
           this.toastr.success('New user created!', 'Registration succeesfull.');
