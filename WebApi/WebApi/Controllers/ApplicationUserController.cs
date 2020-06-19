@@ -46,13 +46,13 @@ namespace WebApi.Controllers
                 IsBlocked = false
             };
             try
-            {
+            { 
+
                 var result = await userManager.CreateAsync(applicationUser, model.Password);
                 return Ok(result);
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }

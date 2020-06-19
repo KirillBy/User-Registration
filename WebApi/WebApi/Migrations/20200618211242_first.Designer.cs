@@ -10,8 +10,8 @@ using WebApi.Models;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(AuthenticationContext))]
-    [Migration("20200612122236_init migration")]
-    partial class initmigration
+    [Migration("20200618211242_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

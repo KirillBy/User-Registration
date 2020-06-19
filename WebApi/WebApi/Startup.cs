@@ -79,6 +79,8 @@ namespace WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             app.UseCors(builder =>
             builder
             .AllowCredentials()

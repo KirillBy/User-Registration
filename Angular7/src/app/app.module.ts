@@ -16,6 +16,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,9 +43,9 @@ import { MatIconModule } from '@angular/material/icon';
   ],
   providers: [UserService, {
     provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
+    useClass: AuthInterceptor, 
     multi: true
-  }],
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

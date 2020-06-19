@@ -87,11 +87,13 @@ this.service.getAllUser().subscribe(
       if(this.userArray[i].selected == true)
       {
         this.service.delete(this.userArray[i].username).subscribe();
+        if(this.userArray[i].username == this.details.userName)
+          this.onLogout();
       }
-      if(this.userArray[i].username == this.details.userName)
-      this.onLogout();
+
+       
     }
-    window.location.reload();
+      window.location.reload();
   }
 
   selectAll() {

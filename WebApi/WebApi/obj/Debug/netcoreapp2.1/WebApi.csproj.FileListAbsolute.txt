@@ -15,4 +15,4 @@ C:\User-Registration\WebApi\WebApi\obj\Debug\netcoreapp2.1\WebApi.dll
 C:\User-Registration\WebApi\WebApi\obj\Debug\netcoreapp2.1\WebApi.pdb
 C:\User-Registration\WebApi\WebApi\obj\Debug\netcoreapp2.1\WebApi.genruntimeconfig.cache
 C:\User-Registration\WebApi\WebApi\obj\Debug\netcoreapp2.1\WebApi.csproj.CoreCompileInputs.cache
-C:\User-Registration\WebApi\WebApi\obj\Debug\netcoreapp2.1\WebApi.csprojAssemblyReference.cache
+C:\User-Registration\WebApi\WebApi\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs

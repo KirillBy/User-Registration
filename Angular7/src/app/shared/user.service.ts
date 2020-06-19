@@ -9,7 +9,7 @@ import{ HttpClient, HttpHeaders } from "@angular/common/http";
 export class UserService {
 
   constructor(private fb:FormBuilder, private http:HttpClient) { }
-readonly BaseURI = 'http://localhost:12380//api';
+readonly BaseURI = 'https://webapi20200619013019.azurewebsites.net//api';
 
   formModel = this.fb.group({
     UserName :['', Validators.required],
